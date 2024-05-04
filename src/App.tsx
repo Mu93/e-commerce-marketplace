@@ -12,7 +12,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -30,9 +29,11 @@ const router = createBrowserRouter([
         element: <SignUpPage />,
         children: [],
       },
+      { path: "*", element: <ErrorPage /> },
     ],
   },
 ]);
+
 const App = () => {
   return <RouterProvider router={router} />;
 };
